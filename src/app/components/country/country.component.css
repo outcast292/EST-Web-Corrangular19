@@ -1,0 +1,17 @@
+.country{
+    
+    list-style-type: none;
+  }
+
+.flag{
+    max-width: 7%;
+    max-height: 7%;
+    position: relative;
+    bottom: 60px;
+}
+
+.labelInfo{
+    position: relative;
+    left:50px;
+
+}
