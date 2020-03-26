@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CountryComponent } from './components/country/country.component';
-import { PreventionComponent } from './components/prevention/prevention.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
@@ -10,8 +10,8 @@ const routes: Routes = [
     component: CountryComponent,
   },
   {
-    path: "prevention",
-    component: PreventionComponent,
+    path: "home",
+    component: HomeComponent,
   }
 ];
 

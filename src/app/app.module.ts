@@ -7,7 +7,7 @@ import { CountryComponent } from './components/country/country.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { Ng2SearchPipeModule } from 'node_modules/ng2-search-filter';
 import { FormsModule } from '@angular/forms';
-import { PreventionComponent } from './components/prevention/prevention.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -15,7 +15,7 @@ import { PreventionComponent } from './components/prevention/prevention.componen
     AppComponent,
     CountryComponent,
     NavbarComponent,
-    PreventionComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
