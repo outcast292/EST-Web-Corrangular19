@@ -21,11 +21,13 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets/",
+              "src/assets/logo.png"
             ],
             "styles": [
               "src/styles.css",
-              "src/uikit.min.css"
+              "src/uikit.min.css",
+              "src/bootstrap.min.css"
             ],
             "scripts": []
           },

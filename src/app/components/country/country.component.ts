@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-country',
   templateUrl: './country.component.html',
-  styleUrls: ['./country.component.css']
+  styleUrls: ['./country.component.css'],
 })
 export class CountryComponent implements OnInit {
 
   data;
   searchText;
-  constructor(){
+  clickedVar: boolean = false;
+  selectedCountry;
+
+  constructor(private _router:Router){
     fetch('https://corona.lmao.ninja/countries')
       .then(response => response.json())
       .then(data => {
@@ -23,9 +27,7 @@ export class CountryComponent implements OnInit {
   }
 
   showDetails(d){
-
-    console.log("data : " + d);
-
+    this._router.navigateByUrl("/details-country" );
   }
 
 }

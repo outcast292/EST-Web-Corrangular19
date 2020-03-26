@@ -3,19 +3,19 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { GlobalComponent } from './components/global/global.component';
 import { CountryComponent } from './components/country/country.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { Ng2SearchPipeModule } from 'node_modules/ng2-search-filter';
 import { FormsModule } from '@angular/forms';
+import { PreventionComponent } from './components/prevention/prevention.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GlobalComponent,
     CountryComponent,
-    NavbarComponent
+    NavbarComponent,
+    PreventionComponent,
   ],
   imports: [
     BrowserModule,
