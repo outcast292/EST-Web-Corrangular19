@@ -6,10 +6,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiService {
 
+  url = "https://corona.lmao.ninja/";
+
   constructor(private http: HttpClient) { }
 
 
   getData(){
-    return this.http.get("https://coronavirus-19-api.herokuapp.com/all");
+    return this.http.get(`${this.url}countries`, );
   }
 }

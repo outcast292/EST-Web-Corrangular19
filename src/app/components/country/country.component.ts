@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'; 
 import { Router } from '@angular/router';
+import { ApiService } from '../../api.service';
 
 @Component({
   selector: 'app-country',
@@ -13,21 +14,20 @@ export class CountryComponent implements OnInit {
   clickedVar: boolean = false;
   selectedCountry;
 
-  constructor(private _router:Router){
-    fetch('https://corona.lmao.ninja/countries')
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        this.data = data; // Prints result from `response.json()` in getRequest
-      })
-      .catch(error => console.log('error'))
+  constructor(private api:ApiService){
+
+      this.api.getData().subscribe((data) =>{
+        this.data = data;
+      });
+
   }
 
   ngOnInit(): void {
   }
 
   showDetails(d){
-    this._router.navigateByUrl("/details-country" );
+    console.log(d);
   }
+  
 
 }
