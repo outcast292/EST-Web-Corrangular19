@@ -7,7 +7,7 @@ import { ApiService } from './api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = "xxxxxxx"
+  title = "CORANGULAR19"
 
 
 
