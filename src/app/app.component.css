@@ -2,15 +2,13 @@
     background-color: #ffeb99;
 }
 a:hover{
-    background-color: #a4c5c6;
-    color: #d4ebd0;
+    background-color: #ffffff;
 }
-
 .pagefooter{
     background-color: #ffeb99;
     color: #856c8b;
 }
 
-.bg{
-    background-color: #a4c5c6;
+.uk-active{
+    background-color: #ffffff;
 }

@@ -1,16 +1,19 @@
+<head >
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
     .country {
         position: relative;
         top: 30px;
     }
 </style>
-<form class="uk-search">
 
-</form>
+</head>
 
 <ul class="uk-grid">
-    <input class="uk-search-input uk-width-1-1" [(ngModel)]="searchText" placeholder="Nom du pays" >
-
+    <div class="uk-search uk-search-default uk-width-1-1">
+        <input class="uk-search-input" [(ngModel)]="searchText" type="search" placeholder="Search...">
+        <i class="fa fa-search fa-2x uk-position-right" aria-hidden="true" style="color: #856c8b; margin-right: 7px; margin-top: 3px;"></i>
+    </div>
     <li *ngFor="let d of data | filter:searchText" class=" uk-width-1-2@s uk-width-1-3@m" (click)="showDetails(d)">
         <div class="uk-card uk-card-default uk-card-hover uk-card-body country">
             <h3 class="uk-card-title">{{ d.country }} </h3> <img src="{{ d.countryInfo.flag }}" class="flag"
