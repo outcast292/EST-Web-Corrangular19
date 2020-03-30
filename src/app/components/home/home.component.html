@@ -2,12 +2,55 @@
 
     <h1 class="uk-article-title">CORANGULAR19</h1>
 
-    
+    <!--
     <p class="uk-text-lead">Hatim Atartour et Othmane Mdarhri</p>
 
     <p>Application Web creée par Hatim Atartour et Othmane Mdarhri, selon le cadre de la recherche sur les Frameworks JS demandée par Madame Adadi.</p>
     <p>L'application utilise la dernière version d'Angular 9.0.7 .</p>
     <p>Dans cette application, on démontre l'utilisation  des composants ,des services, de Routing , fetching  et les directives *ng d'ANGULAR.</p>
     <p>L'application utilise l'API public de <a href="https://github.com/javieraviles/covidAPI">javieraviles</a>,pour le fetch des données.</p>
+-->
+    <article class="uk-article" style="margin-top: 15px;">
+        <div>
+            <ul class="uk-grid">
+                <li class=" uk-width-1-2@s uk-width-1-4@m">
+                    <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                        <h3 class="uk-card-title">T. DES CAS</h3>
+                        <p>{{globalData.cases}}</p>
+                    </div>
+                    <br>
+                </li> <li class=" uk-width-1-2@s uk-width-1-4@m">
+                    <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                        <h3 class="uk-card-title">T. DES DECES</h3>
+                        <p>{{globalData.deaths}}</p>
+                    </div>
+                    <br>
+                </li> <li class=" uk-width-1-2@s uk-width-1-4@m">
+                    <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                        <h3 class="uk-card-title">RETABLISSEMENT</h3>
+                        <p>{{globalData.recovered}}</p>
+                    </div>
+                    <br>
+                </li>
+                <li class=" uk-width-1-2@s uk-width-1-4@m">
+                    <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                        <h3 class="uk-card-title">CAS ACTIVES</h3>
+                        <p>{{globalData.active}}</p>
+                    </div>
+                    <br>
+                </li>
+            </ul>
+        </div>
+
+        <canvas
+        baseChart
+        [chartType]="'line'"
+        [datasets]="chartData"
+        [labels]="chartLabels"
+        [options]="chartOptions"
+        [legend]="true"
+        (chartClick)="onChartClick($event)">
+    </canvas>
+    </article>
 
 </article>

@@ -19,4 +19,12 @@ export class ApiService {
   getHistorical(country){
     return this.http.get(`${this.historical}` + country, );
   }
+
+  getGlobal(){
+    return this.http.get(`${this.url}all`,)
+  }
+  getHistoricalALL(){
+    return this.http.get(`${this.historical}all`, );
+  }
+
 }

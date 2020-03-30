@@ -18,13 +18,9 @@ export class CountryDetailsComponent implements OnInit {
   chartOptions = {
     responsive: true
   };
-  chartData = [
-    { data: [330, 600, 260, 700], label: 'Account A' },
-    { data: [120, 455, 100, 340], label: 'Account B' },
-    { data: [45, 67, 800, 500], label: 'Account C' }
-  ];
+  chartData = [];
 
-  chartLabels = ['January', 'February', 'Mars', 'April'];
+  chartLabels = [];
 
   onChartClick(event) {
     console.log(event);
@@ -32,7 +28,7 @@ export class CountryDetailsComponent implements OnInit {
 
 
 
-  constructor(private api: ApiService, private _router: Router, ) {
+  constructor(private api: ApiService, private _router: Router) {
     if (CountryDetailsComponent.countryData == null) {
       this._router.navigate(['/country/']);
     }
