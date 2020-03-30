@@ -8,16 +8,6 @@
     <a class="uk-navbar-toggle" uk-toggle="target: #menu-mobile">
       <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left"></span>
     </a>
-    <!--
-      <a class="uk-navbar-toggle" uk-navbar-toggle-icon></a>
-    <div uk-dropdown>
-      <ul class="uk-nav uk-dropdown-nav">
-        <li class="uk-link-heading" [routerLinkActive]="['uk-active']"><a routerLink="home">Accueil</a></li>
-        <li class="uk-link-heading" [routerLinkActive]="['uk-active']"><a routerLink="country">Pays</a></li>
-        <li class="uk-link-heading" [routerLinkActive]="['uk-active']"><a routerLink="apropos">A propos</a></li>
-      </ul>
-    </div>
-    -->
   </div>
   <div class="uk-navbar-center">
     <div class="uk-navbar-item uk-logo uk-text-bold" href="#" style="color: #856c8b;"><i
@@ -29,7 +19,7 @@
 
 <div class="uk-offcanvas-content">
   <div id="menu-mobile" uk-offcanvas="mode: push; overlay: true">
-    <div class="uk-offcanvas-bar">
+    <div class="uk-offcanvas-bar" id="test">
       <button class="uk-offcanvas-close" type="button" uk-close></button>
       <ul class="uk-nav uk-nav-default" style="margin-top: 25px;">
         <li class="uk-link-heading" [routerLinkActive]="['uk-active']" ><a class="uk-offcanvas-close home" routerLink="home" >Accueil</a></li>
