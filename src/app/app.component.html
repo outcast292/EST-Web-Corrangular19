@@ -1,9 +1,21 @@
 
 
 <div class="uk-container" >
-  <app-navbar>
+  <nav class="uk-navbar uk-navbar-container">
+    <div class="uk-navbar-left">
+        <ul class="uk-navbar-nav">
+            <img class="uk-active logo" src="assets/logo.png" />
+            <li class="uk-active uk-link-heading"><a routerLink="home">Accueil</a></li>
+            <li class="uk-active uk-link-heading"><a routerLink="country">Pays</a></li>
+        </ul>
+    </div>
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+            <div class="uk-text-emphasis" style="margin-right: 10px;"> #StayAtHome  </div>
+        </ul>
+    </div>
+  </nav>
+  <router-outlet>
 
-  </app-navbar>
-
-
+  </router-outlet>
 </div>
