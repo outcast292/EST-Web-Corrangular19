@@ -15,20 +15,37 @@ export class CountryDetailsComponent implements OnInit {
   static countryName = "";
   static countryData;
   countryHistorical;
-  public lineChartData: ChartDataSets[];
+  chartOptions = {
+    responsive: true
+  };
+  chartData = [
+    { data: [330, 600, 260, 700], label: 'Account A' },
+    { data: [120, 455, 100, 340], label: 'Account B' },
+    { data: [45, 67, 800, 500], label: 'Account C' }
+  ];
 
-  constructor(private api: ApiService,private _router:Router,) {
-    if(CountryDetailsComponent.countryData==null){
+  chartLabels = ['January', 'February', 'Mars', 'April'];
+
+  onChartClick(event) {
+    console.log(event);
+  }
+
+
+
+  constructor(private api: ApiService, private _router: Router, ) {
+    if (CountryDetailsComponent.countryData == null) {
       this._router.navigate(['/country/']);
     }
     this.api.getHistorical(CountryDetailsComponent.countryName).subscribe((data) => {
       this.countryHistorical = data;
       //console.log(CountryDetailsComponent.countryData);
       //console.log(this.countryHistorical.timeline.cases);
+      this.chartData= [{data: Object.values(this.selectedCountry.timeline.cases),label:"Cas d'infection"},{data: Object.values(this.selectedCountry.timeline.deaths),label:"fatalités"} ];
+      this.chartLabels = Object.keys(this.selectedCountry.timeline.cases);
     });
     //var chart = document.getElementById("LineChart");
     //console.log(chart);
-    //this.lineChartData.concat(date:Object.values( this.countryHistorical.timeline.cases))
+   
 
   }
 
@@ -55,10 +72,13 @@ export class CountryDetailsComponent implements OnInit {
 
   get firstCaseDate() {
     if (this.selectedCountry == null) return "";
-    //Object.keys(this.selectedCountry.timeline.cases)[0];
+    
     for (const [key, value] of Object.entries(this.selectedCountry.timeline.cases)) {
       if (value != 0)
         return key;
     }
+
+
+
   }
 }

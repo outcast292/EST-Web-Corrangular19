@@ -66,10 +66,15 @@
             </li>
         </ul>
 
-       <!-- <canvas baseChart width="400" height="400" [datasets]="lineChartData" [labels]="lineChartLabels"
-            [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
-            [chartType]="lineChartType" [plugins]="lineChartPlugins" (chartHover)="chartHovered($event)"
-            (chartClick)="chartClicked($event)"></canvas>-->
+        <canvas
+        baseChart
+        [chartType]="'line'"
+        [datasets]="chartData"
+        [labels]="chartLabels"
+        [options]="chartOptions"
+        [legend]="true"
+        (chartClick)="onChartClick($event)">
+    </canvas>
     </div>
 
 </article>
