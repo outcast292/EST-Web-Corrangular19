@@ -2,7 +2,7 @@
     <div class="uk-section">
         <img class="uk-align-left uk-margin-remove-adjacent" src="{{ SelectedCountryData.countryInfo.flag }}"
             width="225" height="150" alt="Example image">
-        <h1 class="uk-article-title">{{SelectedCountryData.countryInfo.country }} (
+        <h1 class="uk-article-title">{{SelectedCountryData.country }} (
             {{SelectedCountryData.countryInfo.iso2 }} ) </h1>
         <p class="uk-article-meta">Date de premiere infection : {{ firstCaseDate | date:'fullDate':'fr' }} </p>
     </div>

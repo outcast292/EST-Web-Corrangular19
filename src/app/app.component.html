@@ -4,21 +4,21 @@
     <div class="uk-navbar-left">
         <ul class="uk-navbar-nav">
           <a class="uk-navbar-item uk-logo uk-text-bold" href="#">CorAngular19</a>
-            <li class="uk-active uk-link-heading"><a routerLink="home">Accueil</a></li>
-            <li class="uk-active uk-link-heading"><a routerLink="country">Pays</a></li>
-            <li class="uk-active uk-link-heading"><a routerLink="apropos">A propos</a></li>
+            <li class="uk-link-heading"  [routerLinkActive]="['uk-active']"><a routerLink="home">Accueil</a></li>
+            <li class="uk-link-heading"  [routerLinkActive]="['uk-active']"><a routerLink="country" >Pays</a></li>
+            <li class="uk-link-heading"  [routerLinkActive]="['uk-active']"><a routerLink="apropos" >A propos</a></li>
         </ul>
     </div>
     <div class="uk-navbar-right">
         <ul class="uk-navbar-nav">
-            <div class="uk-text-emphasis" style="margin-right: 10px;"> #StayAtHome  </div>
+            <div class="uk-text-emphasis" style="margin-right: 10px;"><a href="https://www.instagram.com/explore/tags/StayAtHome/"> #StayAtHome</a>  </div>
         </ul>
     </div>
   </nav>
 
   <div class="uk-container" >
 
-  <router-outlet style="">
+  <router-outlet >
   </router-outlet>
 </div>
   
