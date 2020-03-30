@@ -1,4 +1,16 @@
+.uk-navbar{
+    background-color: #ffeb99;
+}
+a:hover{
+    background-color: #a4c5c6;
+    color: #d4ebd0;
+}
+
 .pagefooter{
-    background-color: #f5f5f5;
-    margin: auto;
+    background-color: #ffeb99;
+    color: #856c8b;
+}
+
+.bg{
+    background-color: #a4c5c6;
 }
