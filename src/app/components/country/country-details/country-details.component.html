@@ -1,3 +1,75 @@
-<h6>
-    {{ countryHistorical.country }}
-</h6>
+<article class="uk-article" style="margin-top: 5%;">
+    <div class="uk-section">
+        <img class="uk-align-left uk-margin-remove-adjacent" src="{{ SelectedCountryData.countryInfo.flag }}"
+            width="225" height="150" alt="Example image">
+        <h1 class="uk-article-title">{{SelectedCountryData.countryInfo.country }} (
+            {{SelectedCountryData.countryInfo.iso2 }} ) </h1>
+        <p class="uk-article-meta">Date de premiere infection : {{ firstCaseDate | date:'fullDate':'fr' }} </p>
+    </div>
+    <div>
+        <ul class="uk-grid">
+            <li class=" uk-width-1-2@s uk-width-1-4@m">
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                    <h3 class="uk-card-title">TOTAL DES CAS</h3>
+                    <p>{{SelectedCountryData.cases}}</p>
+                </div>
+                <br>
+            </li>
+            <li class=" uk-width-1-2@s uk-width-1-4@m">
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                    <h3 class="uk-card-title">CAS D/24h</h3>
+                    <p>+{{SelectedCountryData.todayCases}}</p>
+                </div>
+                <br>
+            </li>
+            <li class=" uk-width-1-2@s uk-width-1-4@m">
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                    <h3 class="uk-card-title">DÉCÈS</h3>
+                    <p>{{SelectedCountryData.deaths}}</p>
+                </div>
+                <br>
+            </li>
+            <li class=" uk-width-1-2@s uk-width-1-4@m">
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                    <h3 class="uk-card-title">DÉCÈS D/24h </h3>
+                    <p>+{{SelectedCountryData.todayDeaths}}</p>
+                </div>
+                <br>
+            </li>
+            <li class=" uk-width-1-2@s uk-width-1-4@m">
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                    <h3 class="uk-card-title">RÉTABLISSEMENTS</h3>
+                    <p>{{SelectedCountryData.recovered}}</p>
+                </div>
+                <br>
+            </li>
+            <li class=" uk-width-1-2@s uk-width-1-4@m">
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                    <h3 class="uk-card-title">CAS ACTIFS</h3>
+                    <p>{{SelectedCountryData.active}}</p>
+                </div>
+                <br>
+            </li>
+            <li class=" uk-width-1-2@s uk-width-1-4@m">
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                    <h3 class="uk-card-title">CAS CRITIQUES</h3>
+                    <p>{{SelectedCountryData.critical}}</p>
+                </div>
+                <br>
+            </li>
+            <li class=" uk-width-1-2@s uk-width-1-4@m">
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                    <h3 class="uk-card-title">CAS PAR MILLION</h3>
+                    <p>{{SelectedCountryData.casesPerOneMillion}}</p>
+                </div>
+                <br>
+            </li>
+        </ul>
+
+       <!-- <canvas baseChart width="400" height="400" [datasets]="lineChartData" [labels]="lineChartLabels"
+            [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
+            [chartType]="lineChartType" [plugins]="lineChartPlugins" (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>-->
+    </div>
+
+</article>

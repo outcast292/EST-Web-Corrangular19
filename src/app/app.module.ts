@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CountryDetailsComponent } from './components/country/country-details/country-details.component';
 import { ChartsModule } from 'ng2-charts';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,4 +32,5 @@ import { ChartsModule } from 'ng2-charts';
   providers: [CountryDetailsComponent],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

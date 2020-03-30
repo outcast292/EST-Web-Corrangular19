@@ -28,6 +28,7 @@ export class CountryComponent implements OnInit {
 
   showDetails(d){
     this.details.setCountryName(d.country);
+    this.details.setCountryData(d);
     this._router.navigate(['/country-details/']);
   }
   
