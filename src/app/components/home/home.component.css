@@ -1,0 +1,15 @@
+
+@media (min-width: 1024px ){
+  .alignbox {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 49%;
+    padding: 10px;
+  }
+}
+
+@media(min-width:400px){
+  .separation {
+    margin-top: 10px;
+  }
+}

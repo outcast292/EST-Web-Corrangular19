@@ -23,14 +23,15 @@
     <a href="/" class="uk-navbar-item uk-logo"><i class="fa fa-user-md fa-lg"></i>CorAngular19</a>
   </div>
 </nav>
+
 <div class="uk-offcanvas-content">
   <div id="menu-mobile" uk-offcanvas="mode: push; overlay: true">
     <div class="uk-offcanvas-bar">
       <button class="uk-offcanvas-close" type="button" uk-close></button>
-      <ul class="uk-nav uk-nav-default">
-        <li class="uk-link-heading" [routerLinkActive]="['uk-active']"><a routerLink="home">Accueil</a></li>
-        <li class="uk-link-heading" [routerLinkActive]="['uk-active']"><a routerLink="country">Pays</a></li>
-        <li class="uk-link-heading" [routerLinkActive]="['uk-active']"><a routerLink="apropos">A propos</a></li>
+      <ul class="uk-nav uk-nav-default" style="margin-top: 25px;">
+        <li class="uk-link-heading" [routerLinkActive]="['uk-active']" ><a class="uk-offcanvas-close home" routerLink="home" >Accueil</a></li>
+        <li class="uk-link-heading" [routerLinkActive]="['uk-active']"><a class="uk-offcanvas-close home" routerLink="country">Pays</a></li>
+        <li class="uk-link-heading" [routerLinkActive]="['uk-active']"><a class="uk-offcanvas-close home" routerLink="apropos">A propos</a></li>
       </ul>
     </div>
   </div>

@@ -9,6 +9,8 @@ a:hover{
     color: #856c8b;
 }
 
-.uk-active{
-    background-color: #ffffff;
+.home{
+    position: relative;
+    top: 5px;
+    left: 15px;
 }

@@ -3,55 +3,92 @@
     <h4 class="uk-article-title">Sur l'échelle international</h4>
     <br>
     <!--
-    <p class="uk-text-lead">Hatim Atartour et Othmane Mdarhri</p>
+    <div class="uk-child-width-1-2 uk-text-center" uk-grid>
+        <div>
+            <div class="uk-child-width-1-2 uk-text-center" uk-grid>
+                <div>
+                    <div class="uk-child-width-1-2 uk-text-center" uk-grid>
+                        <div class="uk-card uk-card-default uk-card-body">Item</div>
+                        <div class="uk-card uk-card-default uk-card-body">Item</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="uk-child-width-1-2 uk-text-center" uk-grid>
+                        <div class="uk-card uk-card-default uk-card-body">Item</div>
+                        <div class="uk-card uk-card-default uk-card-body">Item</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <p>Application Web creée par Hatim Atartour et Othmane Mdarhri, selon le cadre de la recherche sur les Frameworks JS demandée par Madame Adadi.</p>
-    <p>L'application utilise la dernière version d'Angular 9.0.7 .</p>
-    <p>Dans cette application, on démontre l'utilisation  des composants ,des services, de Routing , fetching  et les directives *ng d'ANGULAR.</p>
-    <p>L'application utilise l'API public de <a href="https://github.com/javieraviles/covidAPI">javieraviles</a>,pour le fetch des données.</p>
+        <div>
+            <div 
+        </div>
+    </div>
 -->
+
+    <div class="uk-grid" uk-grid>
+        <div class="uk-width-1-2@m uk-width-1-1@s" style="">
+            <div class="uk-width-1-4@m uk-width-1-1@s alignbox separation">
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                    <h3 class="uk-card-title">T. DES CAS</h3>
+                    <p>{{globalData.cases}}</p>
+                </div>
+            </div>
+            <div class="uk-width-1-4@m uk-width-1-1@s alignbox separation" style="">
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                    <h3 class="uk-card-title">T. DES DECES</h3>
+                    <p>{{globalData.deaths}}</p>
+                </div>
+            </div>
+            <div class="uk-width-1-4@m uk-width-1-1@s alignbox separation" style="">
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                    <h3 class="uk-card-title">CAS ACTIVES</h3>
+                    <p>{{globalData.active}}</p>
+                </div>
+            </div>
+            <div class="uk-width-1-4@m uk-width-1-1@s alignbox separation" style="">
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                    <h3 class="uk-card-title">RETABLISSEMENT</h3>
+                    <p>{{globalData.recovered}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="uk-width-1-2@m uk-width-1-1@s " style="height: 350px;">
+            <canvas
+                baseChart
+                [chartType]="'line'"
+                [datasets]="chartData"
+                [labels]="chartLabels"
+                [options]="chartOptions"
+                [legend]="true"
+                (chartClick)="onChartClick($event)">
+            </canvas>
+        </div>
+    </div>
+
+        <!--
     <article class="uk-article" style="margin-top: 15px;">
         <div>
             <ul class="uk-grid">
                 <li class=" uk-width-1-2@s uk-width-1-4@m">
-                    <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                        <h3 class="uk-card-title">T. DES CAS</h3>
-                        <p>{{globalData.cases}}</p>
-                    </div>
+                    
                     <br>
                 </li> <li class=" uk-width-1-2@s uk-width-1-4@m">
-                    <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                        <h3 class="uk-card-title">T. DES DECES</h3>
-                        <p>{{globalData.deaths}}</p>
-                    </div>
+                    
                     <br>
                 </li> <li class=" uk-width-1-2@s uk-width-1-4@m">
-                    <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                        <h3 class="uk-card-title">RETABLISSEMENT</h3>
-                        <p>{{globalData.recovered}}</p>
-                    </div>
+                    
                     <br>
                 </li>
                 <li class=" uk-width-1-2@s uk-width-1-4@m">
-                    <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                        <h3 class="uk-card-title">CAS ACTIVES</h3>
-                        <p>{{globalData.active}}</p>
-                    </div>
+                   
                     <br>
                 </li>
             </ul>
         </div>
 
-        <canvas
-        baseChart
-        [chartType]="'line'"
-        [datasets]="chartData"
-        [labels]="chartLabels"
-        [options]="chartOptions"
-        [legend]="true"
-        (chartClick)="onChartClick($event)">
-    </canvas>
+        
     <br><br><br>
     </article>
-
-</article>
+    -->
