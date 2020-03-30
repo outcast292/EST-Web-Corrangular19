@@ -1,12 +1,12 @@
 
 
-<div class="uk-container" >
-  <nav class="uk-navbar uk-navbar-container">
+  <nav class="uk-navbar uk-navbar-container" style="z-index: 980;" uk-sticky="top: 200; bottom: #animation">
     <div class="uk-navbar-left">
         <ul class="uk-navbar-nav">
-            <img class="uk-active logo" src="assets/logo.png" />
+          <a class="uk-navbar-item uk-logo uk-text-bold" href="#">CorAngular19</a>
             <li class="uk-active uk-link-heading"><a routerLink="home">Accueil</a></li>
             <li class="uk-active uk-link-heading"><a routerLink="country">Pays</a></li>
+            <li class="uk-active uk-link-heading"><a routerLink="apropos">A propos</a></li>
         </ul>
     </div>
     <div class="uk-navbar-right">
@@ -15,7 +15,15 @@
         </ul>
     </div>
   </nav>
-  <router-outlet>
 
+  <div class="uk-container" >
+
+  <router-outlet style="">
   </router-outlet>
 </div>
+  
+  <footer id="" class="footer fixed-bottom pagefooter" uk-sticky="bottom:100">
+    <div class="uk-container uk-padding-small">
+        <p class="uk-text-small uk-text-right">Made with love by <a href="https://www.instagram.com/hatimgbl/">@hatimgbl</a> and <a href="https://www.instagram.com/outcast292/">@outcast292</a></p>
+    </div>
+  </footer>

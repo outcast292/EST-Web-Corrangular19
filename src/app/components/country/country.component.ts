@@ -17,7 +17,9 @@ export class CountryComponent implements OnInit {
   clickedVar: boolean = false;
   selectedCountry;
 
-  constructor( private api:ApiService, private _router:Router,private details:CountryDetailsComponent ){
+  constructor( private api:ApiService, 
+               private _router:Router,
+               private details:CountryDetailsComponent ){
       this.api.getData().subscribe((data) =>{
         this.data = data;
       });
@@ -29,6 +31,7 @@ export class CountryComponent implements OnInit {
   showDetails(d){
     this.details.setCountryName(d.country);
     this.details.setCountryData(d);
+
     this._router.navigate(['/country-details/']);
   }
   

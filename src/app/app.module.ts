@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { CountryDetailsComponent } from './components/country/country-details/country-details.component';
 import { ChartsModule } from 'ng2-charts';
+import { AproposComponent } from './components/apropos/apropos.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ChartsModule } from 'ng2-charts';
     CountryComponent,
     HomeComponent,
     CountryDetailsComponent,
+    AproposComponent,
   ],
   imports: [
     BrowserModule,
