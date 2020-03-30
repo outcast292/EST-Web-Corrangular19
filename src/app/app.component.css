@@ -14,3 +14,12 @@ a:hover{
     top: 5px;
     left: 15px;
 }
+.uk-offcanvas-bar{
+    background-color: #856c8b;
+}
+
+
+a.home:active{
+    background-color: #ffeb99;
+    color: #856c8b;
+}
