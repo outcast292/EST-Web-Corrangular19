@@ -1,12 +1,23 @@
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <!-- Menu mobile -->
 <nav class="uk-navbar uk-navbar-container uk-box-shadow-medium uk-hidden@m" id="menu" uk-navbar>
   <div class="uk-navbar-left">
-    <a class="uk-navbar-toggle"   uk-toggle="target: #menu-mobile">
-      <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span>
+    <a class="uk-navbar-toggle" uk-toggle="target: #menu-mobile">
+      <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left"></span>
     </a>
+    <!--
+      <a class="uk-navbar-toggle" uk-navbar-toggle-icon></a>
+    <div uk-dropdown>
+      <ul class="uk-nav uk-dropdown-nav">
+        <li class="uk-link-heading" [routerLinkActive]="['uk-active']"><a routerLink="home">Accueil</a></li>
+        <li class="uk-link-heading" [routerLinkActive]="['uk-active']"><a routerLink="country">Pays</a></li>
+        <li class="uk-link-heading" [routerLinkActive]="['uk-active']"><a routerLink="apropos">A propos</a></li>
+      </ul>
+    </div>
+    -->
   </div>
   <div class="uk-navbar-center">
     <a href="/" class="uk-navbar-item uk-logo"><i class="fa fa-user-md fa-lg"></i>CorAngular19</a>
@@ -48,7 +59,7 @@
   </router-outlet>
 </div>
 
-<footer id="" class="footer fixed-bottom pagefooter" uk-sticky="bottom:100">
+<footer  id="page-footer" class="footer fixed-bottom pagefooter" >
   <div class="uk-container uk-padding-small">
     <p class="uk-text-small uk-text-center uk-text-bold">Made with love by <a
         href="https://www.instagram.com/hatimgbl/">@hatimgbl</a> and <a
