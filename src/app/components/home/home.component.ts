@@ -24,7 +24,22 @@ export class HomeComponent implements OnInit {
     });
     this.api.getHistoricalALL().subscribe((data) =>{
       this.globalhist=data;
-      this.chartData = [{data: Object.values(this.globalhist.cases),label:"Cas d'infection"},{data: Object.values(this.globalhist.deaths),label:"fatalités"} ];
+      this.chartData = [
+        {
+          data: Object.values(this.globalhist.deaths),
+          label: "fatalités",
+          backgroundColor: '#cec4d1',
+          borderColor:'#9d89a2',
+          pointBackgroundColor:'#856c8b'
+        },
+        {
+          data: Object.values(this.globalhist.cases),
+          label: "Cas d'infection",
+          backgroundColor: '#fff0b3',
+          borderColor:'#ffdc4d',
+          pointBackgroundColor:'#ffd21a'
+        }
+      ];
       this.chartLabels = Object.keys(this.globalhist.cases);
       
     });

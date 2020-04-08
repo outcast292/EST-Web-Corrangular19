@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CountryDetailsComponent } from './components/country/country-details/country-details.component';
 import { ChartsModule } from 'ng2-charts';
 import { AproposComponent } from './components/apropos/apropos.component';
+import { CompareComponent } from './components/compare/compare.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { AproposComponent } from './components/apropos/apropos.component';
     HomeComponent,
     CountryDetailsComponent,
     AproposComponent,
+    CompareComponent,
   ],
   imports: [
     BrowserModule,

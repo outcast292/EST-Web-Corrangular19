@@ -1,0 +1,66 @@
+<article class="uk-article" style="margin-top: 25px;">
+
+    <h4 class="uk-article-title">Sur l'échelle international</h4>
+    <br>
+    <div class="uk-grid" uk-grid>
+        <div class="uk-width-1-2@m uk-width-1-1@s" style="">
+            <div class="uk-width-1-4@m uk-width-1-1@s alignbox separation">
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                    <h3 class="uk-card-title">T. DES CAS</h3>
+                    <p>{{globalData.cases}}</p>
+                </div>
+            </div>
+            <div class="uk-width-1-4@m uk-width-1-1@s alignbox separation" style="">
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                    <h3 class="uk-card-title">T. DES DECES</h3>
+                    <p>{{globalData.deaths}}</p>
+                </div>
+            </div>
+            <div class="uk-width-1-4@m uk-width-1-1@s alignbox separation" style="">
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                    <h3 class="uk-card-title">CAS ACTIVES</h3>
+                    <p>{{globalData.active}}</p>
+                </div>
+            </div>
+            <div class="uk-width-1-4@m uk-width-1-1@s alignbox separation" style="">
+                <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                    <h3 class="uk-card-title">RETABLISSEMENT</h3>
+                    <p>{{globalData.recovered}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="uk-width-1-2@m uk-width-1-1@s " style="height: 350px;">
+            <canvas
+                baseChart
+                [chartType]="'line'"
+                [datasets]="chartData"
+                [labels]="chartLabels"
+                [options]="chartOptions"
+                [legend]="true"
+                (chartClick)="onChartClick($event)">
+            </canvas>
+        </div>
+    </div>
+
+
+
+
+    <div class="card" style="max-width: 18rem; background-color: white;">
+        <div class="content-center text-white">
+            <div class="text-uppercase small card-icon bg-warning">
+                <i class="fa fa-bed fa-lg icon " aria-hidden="true">
+                </i>
+            </div>
+        </div>
+        <div class="card-body row text-center">
+            <div class="col">
+            </div>
+            <div class="uk-position-top-right " style="padding: 15px;">
+                <div class="text-uppercase text-muted text-right">
+                    Cas Confirmés
+                </div>
+                <div class=" text-muted text-value-xl text-right font-weight-bold">{{globalData.cases}}</div>
+            </div>
+        </div>
+    </div>
+</div>

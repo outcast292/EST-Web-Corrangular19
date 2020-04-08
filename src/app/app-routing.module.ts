@@ -4,6 +4,7 @@ import { CountryComponent } from './components/country/country.component';
 import { HomeComponent } from './components/home/home.component';
 import { CountryDetailsComponent } from './components/country/country-details/country-details.component';
 import { AproposComponent } from './components/apropos/apropos.component';
+import { CompareComponent } from './components/compare/compare.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: "country-details",
     component: CountryDetailsComponent,
+  },
+  {
+    path: "compare",
+    component: CompareComponent,
   },
   {
     path:'',

@@ -1,76 +1,142 @@
-
-
-<div class="uk-grid" uk-grid>
-    <div class="uk-width-1-1@m uk-width-1-1@s">
-        <div class="uk-section">
-            <img class="uk-align-left uk-margin-remove-adjacent" src="{{ SelectedCountryData.countryInfo.flag }}"
-                width="225" height="150" alt="Example image">
-            <h1 class="uk-article-title">{{SelectedCountryData.country }} (
-                {{SelectedCountryData.countryInfo.iso2 }} ) </h1>
-            <p class="uk-article-meta">Date de premiere infection : {{ firstCaseDate | date:'fullDate':'fr' }} </p>
-        </div>
-    </div>
-    <div class="uk-width-1-2@m uk-width-1-1@s" style="">
-        <div class="uk-width-1-4@m uk-width-1-1@s alignbox separation">
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                <h3 class="uk-card-title">TOTAL DES CAS</h3>
-                <p>{{SelectedCountryData.cases}}</p>
-            </div>
-        </div>
-        <div class="uk-width-1-4@m uk-width-1-1@s alignbox separation" style="">
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                <h3 class="uk-card-title">DÉCÈS</h3>
-                <p>{{SelectedCountryData.deaths}}</p>
-            </div>
-        </div>
-        <div class="uk-width-1-4@m uk-width-1-1@s alignbox separation" style="">
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                <h3 class="uk-card-title">CAS CRITIQUES</h3>
-                <p>{{SelectedCountryData.critical}}</p>
-            </div>
-        </div>
-        <div class="uk-width-1-4@m uk-width-1-1@s alignbox separation" style="">
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                <h3 class="uk-card-title">RÉTABLISSEMENTS</h3>
-                <p>{{SelectedCountryData.recovered}}</p>
-            </div>
-        </div>
-    </div>
-    <div class="uk-width-1-2@m uk-width-1-1@s " style="">
-        <canvas
-            baseChart
-            [chartType]="'line'"
-            [datasets]="chartData"
-            [labels]="chartLabels"
-            [options]="chartOptions"
-            [legend]="true"
-            (chartClick)="onChartClick($event)">
-        </canvas>
-    </div>
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+</head>
+<div class="uk-section" style="padding: 0px; margin-top: 5px;">
+    <img class="uk-align-left uk-margin-remove-adjacent" src="{{ SelectedCountryData.countryInfo.flag }}"
+        width="200" height="150" alt="Example image">
+    <h1 class="uk-article-title">{{SelectedCountryData.country }} (
+        {{SelectedCountryData.countryInfo.iso2 }} ) </h1>
+    <p class="uk-article-meta">Date de premiere infection : {{ firstCaseDate | date:'fullDate':'fr' }} </p>
 </div>
-<div class="uk-grid" uk-grid style="margin-bottom: 120px;"> 
-    <div class="uk-width-1-4@m uk-width-1-1@s" style="">
-        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-            <h3 class="uk-card-title">CAS ACTIFS</h3>
-            <p>{{SelectedCountryData.active}}</p>
+<div class="row" style="margin-bottom: 5px;">
+    <div class="col-lg-6">
+        <div class="row">
+
+            <div class="col-lg-6 col-sm-12 col-md-6">
+                <div class="card" style="background-color: white;">
+                    <div class="content-center text-white">
+                        <div class="text-uppercase small card-icon bg-warning">
+                            <i class="fa fa-bed fa-lg icon " aria-hidden="true">
+                            </i>
+                        </div>
+                    </div>
+                    <div class="card-body row text-center">
+                        <div class="col">
+                        </div>
+                        <div class="uk-position-top-right " style="padding: 15px;">
+                            <div class="text-uppercase text-muted text-right">
+                                Cas Confirmés
+                            </div>
+                            <div class=" text-muted text-value-xl text-right font-weight-bold">{{SelectedCountryData.cases}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer" style="background-color: white;">
+                        <span class="text-warning ">
+                            <i class="fas fa-bell"></i>
+                            +{{SelectedCountryData.todayCases}} nouveau cas.
+                         </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-sm-12 col-md-6">
+                <div class="card" style="background-color: white;">
+                    <div class="content-center text-white">
+                        <div class="text-uppercase small card-icon bg-success">
+                            <i class="fa fa-heart fa-lg icon " aria-hidden="true">
+                            </i>
+                        </div>
+                    </div>
+                    <div class="card-body row text-center">
+                        <div class="col">
+                        </div>
+                        <div class="uk-position-top-right " style="padding: 15px;">
+                            <div class="text-uppercase text-muted text-right">
+                                Guéris
+                            </div>
+                            <div class=" text-muted text-value-xl text-right font-weight-bold">{{SelectedCountryData.recovered}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer" style="background-color: white;">
+                        <span class="text-success ">
+                            <i class="fas fa-bell"></i>
+                            +{{SelectedCountryData.testsPerOneMillion}} test par million.
+                         </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            
+            <div class="col-lg-6 col-sm-12 col-md-6">
+                <div class="card" style="background-color: white;">
+                    <div class="content-center text-white">
+                        <div class="text-uppercase small card-icon bg-danger">
+                            <i class="fas fa-skull fa-lg icon " aria-hidden="true">
+                            </i>
+                        </div>
+                    </div>
+                    <div class="card-body row text-center">
+                        <div class="col">
+                        </div>
+                        <div class="uk-position-top-right " style="padding: 15px;">
+                            <div class="text-uppercase text-muted text-right">
+                                Décès
+                            </div>
+                            <div class=" text-muted text-value-xl text-right font-weight-bold">{{SelectedCountryData.deaths}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer" style="background-color: white;">
+                        <span class="text-danger ">
+                            <i class="fas fa-bell"></i>
+                            +{{SelectedCountryData.todayDeaths}} nouveau décés.
+                         </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-sm-12 col-md-6">
+                <div class="card" style="background-color: white;">
+                    <div class="content-center text-white">
+                        <div class="text-uppercase small card-icon bg-primary">
+                            <i class="fas fa-procedures  fa-lg icon " aria-hidden="true">
+                            </i>
+                        </div>
+                    </div>
+                    <div class="card-body row text-center">
+                        <div class="col">
+                        </div>
+                        <div class="uk-position-top-right " style="padding: 15px;">
+                            <div class="text-uppercase text-muted text-right">
+                                état critique
+                            </div>
+                            <div class=" text-muted text-value-xl text-right font-weight-bold">{{SelectedCountryData.critical}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer" style="background-color: white;">
+                        <span class="text-primary ">
+                            <i class="fas fa-bell"></i>
+                            +{{SelectedCountryData.active}} cas active.
+                         </span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="uk-width-1-4@m uk-width-1-1@s" style="">
-        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-            <h3 class="uk-card-title">CAS D/24h</h3>
-            <p>+{{SelectedCountryData.todayCases}}</p>
-        </div>
-    </div>
-    <div class="uk-width-1-4@m uk-width-1-1@s" style="">
-        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-            <h3 class="uk-card-title">DÉCÈS D/24h </h3>
-            <p>+{{SelectedCountryData.todayDeaths}}</p>
-        </div>
-    </div>
-    <div class="uk-width-1-4@m uk-width-1-1@s" style="">
-        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-            <h3 class="uk-card-title">CAS /MILLION</h3>
-            <p>{{SelectedCountryData.casesPerOneMillion}}</p>
-        </div>
+    <div class="col-lg-6 col-sm-12 col-md-6">
+        <canvas
+        baseChart
+        [chartType]="'line'"
+        [datasets]="chartData"
+        [labels]="chartLabels"
+        [options]="chartOptions"
+        [legend]="true"
+        (chartClick)="onChartClick($event)">
+    </canvas>
     </div>
 </div>

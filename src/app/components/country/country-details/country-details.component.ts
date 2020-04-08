@@ -16,7 +16,13 @@ export class CountryDetailsComponent implements OnInit {
   static countryData;
   countryHistorical;
   chartOptions = {
-    responsive: true
+    responsive: true,
+    title:{
+      display:true,
+      text:'Cumul des cas confirmé​s et décés par jour',
+      position:'bottom',
+      fontColor: '#856c8b'
+    },
   };
   chartData = [];
 
@@ -36,7 +42,22 @@ export class CountryDetailsComponent implements OnInit {
       this.countryHistorical = data;
       //console.log(CountryDetailsComponent.countryData);
       //console.log(this.countryHistorical.timeline.cases);
-      this.chartData= [{data: Object.values(this.selectedCountry.timeline.cases),label:"Cas d'infection"},{data: Object.values(this.selectedCountry.timeline.deaths),label:"fatalités"} ];
+      this.chartData= [
+          {
+              data: Object.values(this.selectedCountry.timeline.deaths),
+              label:"fatalités",
+              backgroundColor: '#cec4d1',
+              borderColor:'#9d89a2',
+              pointBackgroundColor:'#856c8b'
+          },
+          { 
+            data: Object.values(this.selectedCountry.timeline.cases),
+            label:"Cas d'infection",
+            backgroundColor: '#fff0b3',
+            borderColor:'#ffdc4d',
+            pointBackgroundColor:'#ffd21a'
+          }
+        ];
       this.chartLabels = Object.keys(this.selectedCountry.timeline.cases);
     });
     //var chart = document.getElementById("LineChart");
