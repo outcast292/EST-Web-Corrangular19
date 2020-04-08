@@ -19,16 +19,16 @@
             <h3 class="uk-card-title">{{ d.country }} </h3> <img src="{{ d.countryInfo.flag }}" class="flag"
                 align="right">
             <div>
-                Total des cas: {{ d.cases }} 
+                Total des cas: {{ d.cases  |number:'1.0-0':'fr' }} 
                 <span class="uk-text-warning uk-text-small"> 
-                    (+ {{d.todayCases}} dernieres 24H) 
+                    (+ {{d.todayCases|number:'1.0-0':'fr'}} dernieres 24H) 
                 </span><br>
 
-                Décès : {{ d.deaths }} 
+                Décès : {{ d.deaths |number:'1.0-0':'fr'}} 
                 <span class="uk-text-danger uk-text-small"> 
-                    (+ {{d.todayDeaths}} aujourd'hui)
+                    (+ {{d.todayDeaths|number:'1.0-0':'fr'}} aujourd'hui)
                 </span><br>
-                Rétablissement : <span class="uk-text-success uk-text-small"> {{ d.recovered }} </span>
+                Rétablissement : <span class="uk-text-success uk-text-small"> {{ d.recovered|number:'1.0-0':'fr' }} </span>
             </div>
         </div>
         <br>

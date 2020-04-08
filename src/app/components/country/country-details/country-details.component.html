@@ -39,16 +39,15 @@
                             <div class="text-uppercase text-muted text-right">
                                 Cas Confirmés
                             </div>
-                            <div class=" text-muted text-value-xl text-right font-weight-bold">
-                                {{SelectedCountryData.cases}}
+                            <div class=" text-muted text-value-xl text-right font-weight-bold">{{SelectedCountryData.cases| number:'1.0-0':'fr'}}
                             </div>
                         </div>
                     </div>
                     <div class="card-footer" style="background-color: white;">
                         <span class="text-warning ">
                             <i class="fas fa-bell"></i>
-                            +{{SelectedCountryData.todayCases}} nouveau cas.
-                        </span>
+                            +{{SelectedCountryData.todayCases| number:'1.0-0':'fr'}} nouveau cas.
+                         </span>
                     </div>
                 </div>
             </div>
@@ -68,16 +67,15 @@
                             <div class="text-uppercase text-muted text-right">
                                 Guéris
                             </div>
-                            <div class=" text-muted text-value-xl text-right font-weight-bold">
-                                {{SelectedCountryData.recovered}}
+                            <div class=" text-muted text-value-xl text-right font-weight-bold">{{SelectedCountryData.recovered |  number:'1.0-0':'fr'}}
                             </div>
                         </div>
                     </div>
                     <div class="card-footer" style="background-color: white;">
                         <span class="text-success ">
                             <i class="fas fa-bell"></i>
-                            +{{SelectedCountryData.testsPerOneMillion}} test par million.
-                        </span>
+                            +{{SelectedCountryData.testsPerOneMillion| number:'1.0-0':'fr'}} test par million.
+                         </span>
                     </div>
                 </div>
             </div>
@@ -100,16 +98,15 @@
                             <div class="text-uppercase text-muted text-right">
                                 Décès
                             </div>
-                            <div class=" text-muted text-value-xl text-right font-weight-bold">
-                                {{SelectedCountryData.deaths}}
+                            <div class=" text-muted text-value-xl text-right font-weight-bold">{{SelectedCountryData.deaths| number:'1.0-0':'fr'}}
                             </div>
                         </div>
                     </div>
                     <div class="card-footer" style="background-color: white;">
                         <span class="text-danger ">
                             <i class="fas fa-bell"></i>
-                            +{{SelectedCountryData.todayDeaths}} nouveau décés.
-                        </span>
+                            +{{SelectedCountryData.todayDeaths| number:'1.0-0':'fr'}} nouveau décés.
+                         </span>
                     </div>
                 </div>
             </div>
@@ -129,16 +126,15 @@
                             <div class="text-uppercase text-muted text-right">
                                 état critique
                             </div>
-                            <div class=" text-muted text-value-xl text-right font-weight-bold">
-                                {{SelectedCountryData.critical}}
+                            <div class=" text-muted text-value-xl text-right font-weight-bold">{{SelectedCountryData.critical| number:'1.0-0':'fr'}}
                             </div>
                         </div>
                     </div>
                     <div class="card-footer" style="background-color: white;">
                         <span class="text-primary ">
                             <i class="fas fa-bell"></i>
-                            +{{SelectedCountryData.active}} cas active.
-                        </span>
+                            +{{SelectedCountryData.active| number:'1.0-0':'fr'}} cas active.
+                         </span>
                     </div>
                 </div>
             </div>
