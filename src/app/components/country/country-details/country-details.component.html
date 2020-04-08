@@ -11,10 +11,10 @@
     </div>
     <div class="col-lg-6 col-sm-12 col-md-6">
         <select [(ngModel)]="fromDate" >
-            <option *ngFor="let d of chartLabels" > {{ d }} </option>
+            <option *ngFor="let d of dates" > {{ d }} </option>
         </select>
         <select [(ngModel)]="toDate" >
-            <option *ngFor="let d of chartLabels" > {{ d }} </option>
+            <option *ngFor="let d of dates" > {{ d }} </option>
         </select>
         <button class="btn btn-primary" (click)="applyFilter()">apply</button>
     </div>
@@ -146,12 +146,12 @@
     </div>
     <div class="col-lg-6 col-sm-12 col-md-6">
         <canvas baseChart [chartType]="'line'" [datasets]="cases" [labels]="chartLabels" [options]="casesOptions"
-            [legend]="true" (chartClick)="onChartClick($event)">
+            [legend]="true" (chartClick)="onChartClick($event)" id="casesChart">
         </canvas>
     </div>
     <div class="col-lg-6 col-sm-12 col-md-6">
         <canvas baseChart [chartType]="'line'" [datasets]="deaths" [labels]="chartLabels" [options]="deathsOptions"
-            [legend]="true" (chartClick)="onChartClick($event)">
+            [legend]="true" (chartClick)="onChartClick($event)" id='deathsChart'>
         </canvas>
     </div>
 

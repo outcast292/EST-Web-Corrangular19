@@ -45,6 +45,7 @@ export class CountryDetailsComponent implements OnInit {
 
   chartLabels = [];
 
+  dates;
   fromDate;
   toDate;
 
@@ -81,19 +82,15 @@ export class CountryDetailsComponent implements OnInit {
       ];
 
       this.pieData = {
-
         datasets: [{
           data: [this.SelectedCountryData.cases, this.SelectedCountryData.deaths, this.SelectedCountryData.recovered],
           backgroundColor: ["#ffc107", "#dc3545", "#28a745"]
-
         }],
-
         labels: [
           'Cas confirmés',
           'Déces',
           'Guèris'
         ]
-
       };
 
       this.pieChart = new Chart("canvas", {
@@ -101,7 +98,7 @@ export class CountryDetailsComponent implements OnInit {
         data: this.pieData,
       });
 
-      this.chartLabels = Object.keys(this.selectedCountry.timeline.cases);
+      this.chartLabels = this.dates = Object.keys(this.selectedCountry.timeline.cases);
     });
 
   }
@@ -134,8 +131,10 @@ export class CountryDetailsComponent implements OnInit {
   }
 
   applyFilter(){
-    console.log("azeaze")
-    console.log(this.fromDate);
-    console.log(this.toDate);
+    this.chartLabels =  this.dates.slice(this.dates.indexOf(this.fromDate),this.dates.indexOf(this.toDate)+1);
+    console.log(this.selectedCountry.timeline.cases);
   }
+
+  
 }
+
