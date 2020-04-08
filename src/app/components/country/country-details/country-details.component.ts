@@ -159,7 +159,7 @@ export class CountryDetailsComponent implements OnInit {
     }else{
       this.isValideDate = false;
     }
-    
+
     
   }
 
