@@ -132,7 +132,26 @@ export class CountryDetailsComponent implements OnInit {
 
   applyFilter(){
     this.chartLabels =  this.dates.slice(this.dates.indexOf(this.fromDate),this.dates.indexOf(this.toDate)+1);
-    console.log(this.selectedCountry.timeline.cases);
+    
+    this.cases = [
+      {
+        data: Object.entries(this.selectedCountry.timeline.cases).slice(this.dates.indexOf(this.fromDate),this.dates.indexOf(this.toDate)+1).map(entry => entry[1]),
+        label: "Cas d'infection",
+        backgroundColor: '#fff0b3',
+        borderColor: '#ffdc4d',
+        pointBackgroundColor: '#ffd21a'
+      }
+    ];
+    this.deaths = [
+      {
+        data: Object.entries(this.selectedCountry.timeline.deaths).slice(this.dates.indexOf(this.fromDate),this.dates.indexOf(this.toDate)+1).map(entry => entry[1]),
+        label: "fatalités",
+        backgroundColor: '#cec4d1',
+        borderColor: '#9d89a2',
+        pointBackgroundColor: '#856c8b'
+      }
+    ];
+
   }
 
   
