@@ -16,33 +16,37 @@ export class CountryDetailsComponent implements OnInit {
   static countryData;
   countryHistorical;
 
+
   casesOptions = {
     responsive: true,
-    title:{
-      display:true,
-      text:'Cumul des cas confirmé​s par jour',
-      position:'bottom',
+    title: {
+      display: true,
+      text: 'Cumul des cas confirmé​s par jour',
+      position: 'bottom',
       fontColor: '#856c8b'
     },
   };
 
   deathsOptions = {
     responsive: true,
-    title:{
-      display:true,
-      text:'Cumul des décés par jour',
-      position:'bottom',
+    title: {
+      display: true,
+      text: 'Cumul des décés par jour',
+      position: 'bottom',
       fontColor: '#856c8b'
     },
   };
 
-  pieChart:any = [];
+  pieChart: any = [];
   pieData = {};
-  
+
   cases = [];
   deaths = [];
 
   chartLabels = [];
+
+  fromDate;
+  toDate;
 
   onChartClick(event) {
     console.log(event);
@@ -56,23 +60,23 @@ export class CountryDetailsComponent implements OnInit {
     this.api.getHistorical(CountryDetailsComponent.countryName).subscribe((data) => {
       this.countryHistorical = data;
 
-      this.cases= [
-          { 
-            data: Object.values(this.selectedCountry.timeline.cases),
-            label:"Cas d'infection",
-            backgroundColor: '#fff0b3',
-            borderColor:'#ffdc4d',
-            pointBackgroundColor:'#ffd21a'
-          }
-        ];
-
-      this.deaths= [
+      this.cases = [
         {
-         data: Object.values(this.selectedCountry.timeline.deaths),
-          label:"fatalités",
+          data: Object.values(this.selectedCountry.timeline.cases),
+          label: "Cas d'infection",
+          backgroundColor: '#fff0b3',
+          borderColor: '#ffdc4d',
+          pointBackgroundColor: '#ffd21a'
+        }
+      ];
+
+      this.deaths = [
+        {
+          data: Object.values(this.selectedCountry.timeline.deaths),
+          label: "fatalités",
           backgroundColor: '#cec4d1',
-          borderColor:'#9d89a2',
-          pointBackgroundColor:'#856c8b'
+          borderColor: '#9d89a2',
+          pointBackgroundColor: '#856c8b'
         }
       ];
 
@@ -80,8 +84,8 @@ export class CountryDetailsComponent implements OnInit {
 
         datasets: [{
           data: [this.SelectedCountryData.cases, this.SelectedCountryData.deaths, this.SelectedCountryData.recovered],
-          backgroundColor: ["#ffc107","#dc3545","#28a745"]
-          
+          backgroundColor: ["#ffc107", "#dc3545", "#28a745"]
+
         }],
 
         labels: [
@@ -95,14 +99,10 @@ export class CountryDetailsComponent implements OnInit {
       this.pieChart = new Chart("canvas", {
         type: 'pie',
         data: this.pieData,
-    }); 
-      
-        
+      });
+
       this.chartLabels = Object.keys(this.selectedCountry.timeline.cases);
     });
-    //var chart = document.getElementById("LineChart");
-    //console.log(chart);
-   
 
   }
 
@@ -113,8 +113,6 @@ export class CountryDetailsComponent implements OnInit {
     CountryDetailsComponent.countryName = x;
   }
   setCountryData(x) {
-    console.log(x);
-
     CountryDetailsComponent.countryData = x;
   }
   get selectedCountry() {
@@ -128,13 +126,16 @@ export class CountryDetailsComponent implements OnInit {
 
   get firstCaseDate() {
     if (this.selectedCountry == null) return "";
-    
+
     for (const [key, value] of Object.entries(this.selectedCountry.timeline.cases)) {
       if (value != 0)
         return key;
     }
+  }
 
-
-
+  applyFilter(){
+    console.log("azeaze")
+    console.log(this.fromDate);
+    console.log(this.toDate);
   }
 }

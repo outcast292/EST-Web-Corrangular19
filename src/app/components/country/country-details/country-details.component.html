@@ -1,13 +1,25 @@
 <head>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 </head>
-<div class="uk-section" style="padding: 0px; margin-top: 5px;">
-    <img class="uk-align-left uk-margin-remove-adjacent" src="{{ SelectedCountryData.countryInfo.flag }}"
-        width="200" height="150" alt="Example image">
-    <h1 class="uk-article-title">{{SelectedCountryData.country }} (
-        {{SelectedCountryData.countryInfo.iso2 }} ) </h1>
-    <p class="uk-article-meta">Date de premiere infection : {{ firstCaseDate | date:'fullDate':'fr' }} </p>
+<div class="row" style="padding: 0px; margin-top: 5px;">
+    <div class="col-lg-6 col-sm-12 col-md-6">
+        <img class="uk-align-left uk-margin-remove-adjacent" src="{{ SelectedCountryData.countryInfo.flag }}"
+            width="200" height="150" alt="Example image">
+        <h1 class="uk-article-title">{{SelectedCountryData.country }} (
+            {{SelectedCountryData.countryInfo.iso2 }} ) </h1>
+        <p class="uk-article-meta">Date de premiere infection : {{ firstCaseDate | date:'fullDate':'fr' }} </p>
+    </div>
+    <div class="col-lg-6 col-sm-12 col-md-6">
+        <select [(ngModel)]="fromDate" >
+            <option *ngFor="let d of chartLabels" > {{ d }} </option>
+        </select>
+        <select [(ngModel)]="toDate" >
+            <option *ngFor="let d of chartLabels" > {{ d }} </option>
+        </select>
+        <button class="btn btn-primary" (click)="applyFilter()">apply</button>
+    </div>
 </div>
+
 <div class="row" style="margin-bottom: 150px;">
     <div class="col-lg-6">
         <div class="row">
@@ -27,7 +39,8 @@
                             <div class="text-uppercase text-muted text-right">
                                 Cas Confirmés
                             </div>
-                            <div class=" text-muted text-value-xl text-right font-weight-bold">{{SelectedCountryData.cases}}
+                            <div class=" text-muted text-value-xl text-right font-weight-bold">
+                                {{SelectedCountryData.cases}}
                             </div>
                         </div>
                     </div>
@@ -35,7 +48,7 @@
                         <span class="text-warning ">
                             <i class="fas fa-bell"></i>
                             +{{SelectedCountryData.todayCases}} nouveau cas.
-                         </span>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -55,7 +68,8 @@
                             <div class="text-uppercase text-muted text-right">
                                 Guéris
                             </div>
-                            <div class=" text-muted text-value-xl text-right font-weight-bold">{{SelectedCountryData.recovered}}
+                            <div class=" text-muted text-value-xl text-right font-weight-bold">
+                                {{SelectedCountryData.recovered}}
                             </div>
                         </div>
                     </div>
@@ -63,14 +77,14 @@
                         <span class="text-success ">
                             <i class="fas fa-bell"></i>
                             +{{SelectedCountryData.testsPerOneMillion}} test par million.
-                         </span>
+                        </span>
                     </div>
                 </div>
             </div>
 
         </div>
         <div class="row">
-            
+
             <div class="col-lg-6 col-sm-12 col-md-6">
                 <div class="card" style="background-color: white;">
                     <div class="content-center text-white">
@@ -86,7 +100,8 @@
                             <div class="text-uppercase text-muted text-right">
                                 Décès
                             </div>
-                            <div class=" text-muted text-value-xl text-right font-weight-bold">{{SelectedCountryData.deaths}}
+                            <div class=" text-muted text-value-xl text-right font-weight-bold">
+                                {{SelectedCountryData.deaths}}
                             </div>
                         </div>
                     </div>
@@ -94,7 +109,7 @@
                         <span class="text-danger ">
                             <i class="fas fa-bell"></i>
                             +{{SelectedCountryData.todayDeaths}} nouveau décés.
-                         </span>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -114,7 +129,8 @@
                             <div class="text-uppercase text-muted text-right">
                                 état critique
                             </div>
-                            <div class=" text-muted text-value-xl text-right font-weight-bold">{{SelectedCountryData.critical}}
+                            <div class=" text-muted text-value-xl text-right font-weight-bold">
+                                {{SelectedCountryData.critical}}
                             </div>
                         </div>
                     </div>
@@ -122,37 +138,25 @@
                         <span class="text-primary ">
                             <i class="fas fa-bell"></i>
                             +{{SelectedCountryData.active}} cas active.
-                         </span>
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div class="col-lg-6 col-sm-12 col-md-6">
-        <canvas id="canvas">{{ pieChart }}</canvas>  
+        <canvas id="canvas">{{ pieChart }}</canvas>
     </div>
     <div class="col-lg-6 col-sm-12 col-md-6">
-        <canvas
-        baseChart
-        [chartType]="'line'"
-        [datasets]="cases"
-        [labels]="chartLabels"
-        [options]="casesOptions"
-        [legend]="true"
-        (chartClick)="onChartClick($event)">
-    </canvas>
+        <canvas baseChart [chartType]="'line'" [datasets]="cases" [labels]="chartLabels" [options]="casesOptions"
+            [legend]="true" (chartClick)="onChartClick($event)">
+        </canvas>
     </div>
     <div class="col-lg-6 col-sm-12 col-md-6">
-        <canvas
-        baseChart
-        [chartType]="'line'"
-        [datasets]="deaths"
-        [labels]="chartLabels"
-        [options]="deathsOptions"
-        [legend]="true"
-        (chartClick)="onChartClick($event)">
-    </canvas>
+        <canvas baseChart [chartType]="'line'" [datasets]="deaths" [labels]="chartLabels" [options]="deathsOptions"
+            [legend]="true" (chartClick)="onChartClick($event)">
+        </canvas>
     </div>
-    
+
 </div>
