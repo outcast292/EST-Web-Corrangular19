@@ -128,15 +128,31 @@
             </div>
         </div>
     </div>
+    
+    <div class="col-lg-6 col-sm-12 col-md-6">
+        <canvas id="canvas">{{ pieChart }}</canvas>  
+    </div>
     <div class="col-lg-6 col-sm-12 col-md-6">
         <canvas
         baseChart
         [chartType]="'line'"
-        [datasets]="chartData"
+        [datasets]="cases"
         [labels]="chartLabels"
-        [options]="chartOptions"
+        [options]="casesOptions"
         [legend]="true"
         (chartClick)="onChartClick($event)">
     </canvas>
     </div>
+    <div class="col-lg-6 col-sm-12 col-md-6">
+        <canvas
+        baseChart
+        [chartType]="'line'"
+        [datasets]="deaths"
+        [labels]="chartLabels"
+        [options]="deathsOptions"
+        [legend]="true"
+        (chartClick)="onChartClick($event)">
+    </canvas>
+    </div>
+    
 </div>
