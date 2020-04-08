@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <head>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 </head>
@@ -66,9 +67,35 @@
                          </span>
                     </div>
                 </div>
+=======
+
+
+<div class="uk-grid" uk-grid>
+    <div class="uk-width-1-1@m uk-width-1-1@s">
+        <div class="uk-section">
+            <img class="uk-align-left uk-margin-remove-adjacent" src="{{ SelectedCountryData.countryInfo.flag }}"
+                width="225" height="150" alt="Example image">
+            <h1 class="uk-article-title">{{SelectedCountryData.country }} (
+                {{SelectedCountryData.countryInfo.iso2 }} ) </h1>
+            <p class="uk-article-meta">Date de premiere infection : {{ firstCaseDate | date:'fullDate':'fr' }} </p>
+        </div>
+    </div>
+    <div class="uk-width-1-2@m uk-width-1-1@s" >
+        <div class="uk-width-1-4@m uk-width-1-1@s alignbox separation">
+            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                <h3 class="uk-card-title">TOTAL DES CAS</h3>
+                <p>{{SelectedCountryData.cases}}</p>
+            </div>
+        </div>
+        <div class="uk-width-1-4@m uk-width-1-1@s alignbox separation" >
+            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                <h3 class="uk-card-title">DÉCÈS</h3>
+                <p>{{SelectedCountryData.deaths}}</p>
+>>>>>>> 54c8a5992facb8a3b99d2a80260e698109caefed
             </div>
 
         </div>
+<<<<<<< HEAD
         <div class="row">
             
             <div class="col-lg-6 col-sm-12 col-md-6">
@@ -153,6 +180,57 @@
         [legend]="true"
         (chartClick)="onChartClick($event)">
     </canvas>
+=======
+        <div class="uk-width-1-4@m uk-width-1-1@s alignbox separation" >
+            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                <h3 class="uk-card-title">CAS CRITIQUES</h3>
+                <p>{{SelectedCountryData.critical}}</p>
+            </div>
+        </div>
+        <div class="uk-width-1-4@m uk-width-1-1@s alignbox separation" >
+            <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+                <h3 class="uk-card-title">RÉTABLISSEMENTS</h3>
+                <p>{{SelectedCountryData.recovered}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="uk-width-1-2@m uk-width-1-1@s " >
+        <canvas
+            baseChart
+            [chartType]="'line'"
+            [datasets]="chartData"
+            [labels]="chartLabels"
+            [options]="chartOptions"
+            [legend]="true"
+            (chartClick)="onChartClick($event)">
+        </canvas>
+    </div>
+</div>
+<div class="uk-grid" uk-grid style="margin-bottom: 120px;"> 
+    <div class="uk-width-1-4@m uk-width-1-1@s" >
+        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+            <h3 class="uk-card-title">CAS ACTIFS</h3>
+            <p>{{SelectedCountryData.active}}</p>
+        </div>
+    </div>
+    <div class="uk-width-1-4@m uk-width-1-1@s" >
+        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+            <h3 class="uk-card-title">CAS D/24h</h3>
+            <p>+{{SelectedCountryData.todayCases}}</p>
+        </div>
+    </div>
+    <div class="uk-width-1-4@m uk-width-1-1@s" >
+        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+            <h3 class="uk-card-title">DÉCÈS D/24h </h3>
+            <p>+{{SelectedCountryData.todayDeaths}}</p>
+        </div>
+    </div>
+    <div class="uk-width-1-4@m uk-width-1-1@s" >
+        <div class="uk-card uk-card-default uk-card-hover uk-card-body">
+            <h3 class="uk-card-title">CAS /MILLION</h3>
+            <p>{{SelectedCountryData.casesPerOneMillion}}</p>
+        </div>
+>>>>>>> 54c8a5992facb8a3b99d2a80260e698109caefed
     </div>
     
 </div>
