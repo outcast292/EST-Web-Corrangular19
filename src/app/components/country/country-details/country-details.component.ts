@@ -48,7 +48,7 @@ export class CountryDetailsComponent implements OnInit {
   dates;
   fromDate;
   toDate;
-  isValideDate:boolean = true;
+  isValideDate: boolean = true;
 
 
   onChartClick(event) {
@@ -132,15 +132,23 @@ export class CountryDetailsComponent implements OnInit {
     }
   }
 
-  applyFilter(){
+  applyFilter() {
 
-    if(this.fromDate != null && this.toDate != null && this.fromDate != this.toDate){
+    if (this.fromDate != null && this.toDate != null) {
       this.isValideDate = true;
-      this.chartLabels = this.dates.slice(this.dates.indexOf(this.fromDate), this.dates.indexOf(this.toDate) + 1);
+      if (new Date(this.fromDate).getTime() > new Date(this.toDate).getTime()) {
+        [this.fromDate, this.toDate] = [this.toDate, this.fromDate];
+      }
+      if (this.fromDate == this.toDate) {
+        this.chartLabels = [this.fromDate, this.fromDate];
+      }
+      else {
+        this.chartLabels = this.dates.slice(this.dates.indexOf(this.fromDate), this.dates.indexOf(this.toDate) + 1);
 
+      }
       this.cases = [
         {
-          data: Object.entries(this.selectedCountry.timeline.cases).slice(this.dates.indexOf(this.fromDate), this.dates.indexOf(this.toDate) + 1).map(entry => entry[1]),
+          data: (this.fromDate != this.toDate) ? Object.entries(this.selectedCountry.timeline.cases).slice(this.dates.indexOf(this.fromDate), this.dates.indexOf(this.toDate) + 1).map(entry => entry[1]) : Object.entries(this.selectedCountry.timeline.cases).slice(this.dates.indexOf(this.fromDate), this.dates.indexOf(this.toDate) + 1).map(entry => entry[1]).concat(Object.entries(this.selectedCountry.timeline.cases).slice(this.dates.indexOf(this.fromDate), this.dates.indexOf(this.toDate) + 1).map(entry => entry[1])),
           label: "Cas d'infection",
           backgroundColor: '#fff0b3',
           borderColor: '#ffdc4d',
@@ -149,20 +157,25 @@ export class CountryDetailsComponent implements OnInit {
       ];
       this.deaths = [
         {
-          data: Object.entries(this.selectedCountry.timeline.deaths).slice(this.dates.indexOf(this.fromDate), this.dates.indexOf(this.toDate) + 1).map(entry => entry[1]),
+          data: (this.fromDate != this.toDate) ? Object.entries(this.selectedCountry.timeline.deaths).slice(this.dates.indexOf(this.fromDate), this.dates.indexOf(this.toDate) + 1).map(entry => entry[1]) : Object.entries(this.selectedCountry.timeline.deaths).slice(this.dates.indexOf(this.fromDate), this.dates.indexOf(this.toDate) + 1).map(entry => entry[1]).concat(Object.entries(this.selectedCountry.timeline.deaths).slice(this.dates.indexOf(this.fromDate), this.dates.indexOf(this.toDate) + 1).map(entry => entry[1])),
           label: "fatalités",
           backgroundColor: '#cec4d1',
           borderColor: '#9d89a2',
           pointBackgroundColor: '#856c8b'
         }
       ];
-    }else{
+
+    } else {
       this.isValideDate = false;
     }
 
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 1d0121536e5aaf3dace4547d79b8f13ea2f006f2
   }
 
-  
+
 }
 
