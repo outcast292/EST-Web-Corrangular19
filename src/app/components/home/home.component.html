@@ -20,7 +20,7 @@
                             <div class="text-uppercase text-muted text-right">
                                 Cas Confirmés
                             </div>
-                            <div class=" text-muted text-value-xl text-right font-weight-bold">{{globalData.cases}}</div>
+                            <div class=" text-muted text-value-xl text-right font-weight-bold">{{globalData.cases| number:'1.0-0':'fr'}}</div>
                         </div>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                             <div class="text-uppercase text-muted text-right">
                                 Guéris 
                             </div>
-                            <div class=" text-muted text-value-xl text-right font-weight-bold">{{globalData.recovered}}</div>
+                            <div class=" text-muted text-value-xl text-right font-weight-bold">{{globalData.recovered| number:'1.0-0':'fr'}}</div>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                             <div class="text-uppercase text-muted text-right">
                                 Décès  
                             </div>
-                            <div class=" text-muted text-value-xl text-right font-weight-bold">{{globalData.deaths}}</div>
+                            <div class=" text-muted text-value-xl text-right font-weight-bold">{{globalData.deaths| number:'1.0-0':'fr'}}</div>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                             <div class="text-uppercase text-muted text-right">
                                 Active  
                             </div>
-                            <div class=" text-muted text-value-xl text-right font-weight-bold">{{globalData.active}}</div>
+                            <div class=" text-muted text-value-xl text-right font-weight-bold">{{globalData.active| number:'1.0-0':'fr'}}</div>
                         </div>
                     </div>
                 </div></div>
