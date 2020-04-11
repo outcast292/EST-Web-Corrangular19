@@ -11,7 +11,7 @@ import { Color, BaseChartDirective, Label } from 'ng2-charts';
 export class CompareComponent implements OnInit {
 
   country;
-  countries;
+  countries = [];
 
   historicalCountry;
   cases = [];
@@ -67,6 +67,7 @@ export class CompareComponent implements OnInit {
   addCountry(){
     console.log("clicked");
     this.api.getHistorical(this.country).subscribe((data) => {
+      this.countries.push(this.country);
       this.historicalCountry = data;
 
       var color = this.RandomColor;
@@ -75,6 +76,7 @@ export class CompareComponent implements OnInit {
         label: "Cas d'infection au " + this.historicalCountry.country,
         borderColor: color,
         backgroundColor: color,
+        pointBackgroundColor: color,
         fill: false,
       };
 
@@ -86,6 +88,7 @@ export class CompareComponent implements OnInit {
         label: "Fatalités au " + this.historicalCountry.country,
         borderColor: color,
         backgroundColor: color,
+        pointBackgroundColor: color,
         fill: false,
       };
       this.deaths.push(this.newDeath)
@@ -93,6 +96,10 @@ export class CompareComponent implements OnInit {
       this.chartLabels = Object.keys(this.historicalCountry.timeline.cases);
     });
     
+  }
+  deleteCountry(){
+
+    console.log(this.cases);
   }
 
 }

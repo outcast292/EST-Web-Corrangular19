@@ -11,4 +11,8 @@
          [legend]="true" id="deathsChart">
         </canvas>
     </div>
+
+    <li *ngFor="let country of countries" (click)="deleteCountry()">
+            {{ country }}
+    </li>
 </div>
