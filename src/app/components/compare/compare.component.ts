@@ -131,4 +131,10 @@ export class CompareComponent implements OnInit {
     this.Selectedcountries = this.Selectedcountries.filter((item,key) =>  key!=index);
     this.drawCharts();
 }
+
+  removeAll(){
+    this.Selectedcountries = [];
+    this.countries = [];
+    this.drawCharts();
+  }
 }
