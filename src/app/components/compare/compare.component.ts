@@ -10,14 +10,38 @@ import { Color, BaseChartDirective, Label } from 'ng2-charts';
 })
 export class CompareComponent implements OnInit {
 
-  country="usa";
+  country;
   countries;
 
   historicalCountry;
-  cases;
-  deaths;
+  cases = [];
+  deaths = [];
 
-  casesChart:any ;
+  newCase;
+  newDeath;
+  
+  casesOptions = {
+    responsive: true,
+    title: {
+      display: true,
+      text: 'Cumul des cas confirmé​s par jour',
+      position: 'bottom',
+      fontColor: '#856c8b'
+    },
+    onClick : function(mouseEvent,chart){
+        console.log(chart.label);
+    },
+  };
+
+  deathsOptions = {
+    responsive: true,
+    title: {
+      display: true,
+      text: 'Cumul des décés par jour',
+      position: 'bottom',
+      fontColor: '#856c8b'
+    },
+  };
 
   chartLabels;
   chartOptions = {
@@ -25,43 +49,49 @@ export class CompareComponent implements OnInit {
   };
 
   constructor(private api: ApiService) {
-    this.api.getHistorical(this.country).subscribe((data) => {
-      this.historicalCountry = data;
-      console.log(data);
-
-      this.cases = [
-        {
-          data: Object.values(this.historicalCountry.timeline.cases),
-          label: "Cas d'infection",
-          backgroundColor: '#fff0b3',
-          borderColor: '#ffdc4d',
-          pointBackgroundColor: '#ffd21a'
-        }
-      ];
-      console.log(this.cases);
-
-      this.deaths = [
-        {
-          data: Object.values(this.historicalCountry.timeline.deaths),
-          label: "fatalités",
-          backgroundColor: '#cec4d1',
-          borderColor: '#9d89a2',
-          pointBackgroundColor: '#856c8b'
-        }
-      ];
-      console.log(this.deaths);
-
-      this.chartLabels = Object.keys(this.historicalCountry.timeline.cases);
-      console.log(this.chartLabels);
-    });
+    
    }
 
   ngOnInit(): void {
   }
 
+  get RandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
   
   addCountry(){
-    
+    console.log("clicked");
+    this.api.getHistorical(this.country).subscribe((data) => {
+      this.historicalCountry = data;
+
+      var color = this.RandomColor;
+      this.newCase = {
+        data: Object.values(this.historicalCountry.timeline.cases),
+        label: "Cas d'infection au " + this.historicalCountry.country,
+        borderColor: color,
+        backgroundColor: color,
+        fill: false,
+      };
+
+      this.cases.push(this.newCase);
+
+      this.newDeath =
+      {
+        data: Object.values(this.historicalCountry.timeline.deaths),
+        label: "Fatalités au " + this.historicalCountry.country,
+        borderColor: color,
+        backgroundColor: color,
+        fill: false,
+      };
+      this.deaths.push(this.newDeath)
+
+      this.chartLabels = Object.keys(this.historicalCountry.timeline.cases);
+    });
     
   }
 

@@ -1,10 +1,14 @@
 
 <input type="text" class="form-control" [(ngModel)]="country"> <button (click)="addCountry()">add</button>
 <div class="row">
-    <div class="col-lg-6 col-sm-12 col-md-6">
-        Canvas cas d'infection
+    <div class="col-lg-6 col-sm-12 col-md-6" *ngIf="cases.length">
+        <canvas baseChart [chartType]="'line'" [datasets]="cases" [labels]="chartLabels" [options]="casesOptions"
+             id="casesChart">
+        </canvas>
     </div>
-    <div class="col-lg-6 col-sm-12 col-md-6">
-        Canvas fatalités
+    <div class="col-lg-6 col-sm-12 col-md-6" *ngIf="deaths.length">
+        <canvas baseChart [chartType]="'line'" [datasets]="deaths" [labels]="chartLabels" [options]="deathsOptions"
+         [legend]="true" id="deathsChart">
+        </canvas>
     </div>
 </div>

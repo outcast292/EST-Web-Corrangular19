@@ -17,26 +17,7 @@ export class CountryDetailsComponent implements OnInit {
   countryHistorical;
 
 
-  casesOptions = {
-    responsive: true,
-    title: {
-      display: true,
-      text: 'Cumul des cas confirmé​s par jour',
-      position: 'bottom',
-      fontColor: '#856c8b'
-    },
-  };
-
-  deathsOptions = {
-    responsive: true,
-    title: {
-      display: true,
-      text: 'Cumul des décés par jour',
-      position: 'bottom',
-      fontColor: '#856c8b'
-    },
-  };
-
+  
   pieChart: any = [];
   pieData = {};
 
@@ -66,7 +47,7 @@ export class CountryDetailsComponent implements OnInit {
       this.cases = [
         {
           data: Object.values(this.selectedCountry.timeline.cases),
-          label: "Cas d'infection",
+          label: "Cas d'infection au " + this.selectedCountry.country,
           backgroundColor: '#fff0b3',
           borderColor: '#ffdc4d',
           pointBackgroundColor: '#ffd21a'
@@ -76,7 +57,7 @@ export class CountryDetailsComponent implements OnInit {
       this.deaths = [
         {
           data: Object.values(this.selectedCountry.timeline.deaths),
-          label: "fatalités",
+          label: "Fatalités au " + this.selectedCountry.country,
           backgroundColor: '#cec4d1',
           borderColor: '#9d89a2',
           pointBackgroundColor: '#856c8b'
