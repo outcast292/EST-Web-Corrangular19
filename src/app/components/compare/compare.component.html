@@ -1,5 +1,12 @@
 
-<input type="text" class="form-control" [(ngModel)]="country"> <button (click)="addCountry()">add</button>
+<input type="text" class="form-control" [(ngModel)]="country" list="countries">
+<datalist id="countries">
+    <option *ngFor="let c of countries" [value]="c.country" >{{c.country}}</option>
+  </datalist>
+<button (click)="addCountry()">add</button>
+<div class="d-flex  justify-content-around">
+    <div *ngFor="let c of Selectedcountries" class="p-2  " style="background-color: lightblue;" >{{c}}  <button (click)="removeCountry(c)">X</button></div>
+</div>
 <div class="row">
     <div class="col-lg-6 col-sm-12 col-md-6" *ngIf="cases.length">
         <canvas baseChart [chartType]="'line'" [datasets]="cases" [labels]="chartLabels" [options]="casesOptions"

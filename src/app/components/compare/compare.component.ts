@@ -12,6 +12,7 @@ export class CompareComponent implements OnInit {
 
   country;
   countries;
+  Selectedcountries = [];
 
   historicalCountry;
   cases = [];
@@ -49,7 +50,10 @@ export class CompareComponent implements OnInit {
   };
 
   constructor(private api: ApiService) {
-    
+    this.api.getData().subscribe((data) =>{
+      console.log(data);
+      this.countries = data;
+    });
    }
 
   ngOnInit(): void {
@@ -66,33 +70,56 @@ export class CompareComponent implements OnInit {
   
   addCountry(){
     console.log("clicked");
-    this.api.getHistorical(this.country).subscribe((data) => {
-      this.historicalCountry = data;
+    if(this.Selectedcountries.includes(this.country)){
+      this.country="";
+      return;
+    }
+    this.Selectedcountries.push( this.country);
+    this.drawCharts();
+    this.country="";
 
-      var color = this.RandomColor;
-      this.newCase = {
-        data: Object.values(this.historicalCountry.timeline.cases),
-        label: "Cas d'infection au " + this.historicalCountry.country,
-        borderColor: color,
-        backgroundColor: color,
-        fill: false,
-      };
-
-      this.cases.push(this.newCase);
-
-      this.newDeath =
-      {
-        data: Object.values(this.historicalCountry.timeline.deaths),
-        label: "Fatalités au " + this.historicalCountry.country,
-        borderColor: color,
-        backgroundColor: color,
-        fill: false,
-      };
-      this.deaths.push(this.newDeath)
-
-      this.chartLabels = Object.keys(this.historicalCountry.timeline.cases);
-    });
-    
   }
 
+  drawCharts(){
+    this.cases=[];
+    this.deaths=[];
+    this.Selectedcountries.forEach(country => {
+
+      this.api.getHistorical(country).subscribe((data) => {
+        this.historicalCountry = data;
+  
+        var color = this.RandomColor;
+        this.newCase = {
+          data: Object.values(this.historicalCountry.timeline.cases),
+          label: "Cas d'infection au " + this.historicalCountry.country,
+          borderColor: color,
+          backgroundColor: color,
+          fill: false,
+        };
+  
+        this.cases.push(this.newCase);
+  
+        this.newDeath =
+        {
+          data: Object.values(this.historicalCountry.timeline.deaths),
+          label: "Fatalités au " + this.historicalCountry.country,
+          borderColor: color,
+          backgroundColor: color,
+          fill: false,
+        };
+        this.deaths.push(this.newDeath)
+  
+        this.chartLabels = Object.keys(this.historicalCountry.timeline.cases);
+      });
+
+
+
+    })
+  }
+  removeCountry(e){
+    let index = this.Selectedcountries.indexOf(e);
+    this.countries = this.countries.filter(item => item !=e);
+    this.Selectedcountries = this.Selectedcountries.filter((item,key) =>  key!=index);
+    this.drawCharts();
+}
 }
