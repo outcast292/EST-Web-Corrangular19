@@ -79,6 +79,8 @@ export class CompareComponent implements OnInit {
       this.isEmpty = false;
 
       return;
+    }else{
+      this.isAdded = false;
     }
     if(this.country != ""){
       this.Selectedcountries.push(this.country);
@@ -136,5 +138,7 @@ export class CompareComponent implements OnInit {
     this.Selectedcountries = [];
     this.countries = [];
     this.drawCharts();
+    this.isEmpty = true;
+    this.isAdded = false;
   }
 }
