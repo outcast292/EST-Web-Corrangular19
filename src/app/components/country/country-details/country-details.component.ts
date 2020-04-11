@@ -168,12 +168,6 @@ export class CountryDetailsComponent implements OnInit {
     } else {
       this.isValideDate = false;
     }
-
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> 1d0121536e5aaf3dace4547d79b8f13ea2f006f2
   }
 
 

@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
     responsive: true,
     title:{
       display:true,
-      text:'Cumul des cas confirmé​s par jour',
+      text:'Cumul des décés par jour',
       position:'bottom',
       fontColor: '#856c8b'
     },
@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
     responsive: true,
     title:{
       display:true,
-      text:'Cumul des décés par jour',
+      text:'Cumul des cas confirmé​s par jour',
       position:'bottom',
       fontColor: '#856c8b'
     },
@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit {
       this.cases = [
         {
           data: Object.values(this.globalhist.deaths),
-          label: "fatalités",
+          label: "Fatalités",
           backgroundColor: '#cec4d1',
           borderColor:'#9d89a2',
           pointBackgroundColor:'#856c8b'

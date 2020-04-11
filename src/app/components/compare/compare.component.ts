@@ -10,7 +10,7 @@ import { Color, BaseChartDirective, Label } from 'ng2-charts';
 })
 export class CompareComponent implements OnInit {
 
-  country;
+  country="usa";
   countries;
 
   historicalCountry;
@@ -25,14 +25,6 @@ export class CompareComponent implements OnInit {
   };
 
   constructor(private api: ApiService) {
-      
-   }
-
-  ngOnInit(): void {
-  }
-
-
-  addCountry(){
     this.api.getHistorical(this.country).subscribe((data) => {
       this.historicalCountry = data;
       console.log(data);
@@ -62,7 +54,15 @@ export class CompareComponent implements OnInit {
       this.chartLabels = Object.keys(this.historicalCountry.timeline.cases);
       console.log(this.chartLabels);
     });
+   }
 
+  ngOnInit(): void {
+  }
+
+  
+  addCountry(){
+    
+    
   }
 
 }
