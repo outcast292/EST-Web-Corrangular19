@@ -30,7 +30,8 @@
               "src/uikit.min.css",
               "src/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {

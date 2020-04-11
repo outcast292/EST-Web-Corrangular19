@@ -1,5 +1,63 @@
 
-<input type="text" class="form-control" [(ngModel)]="country"> <button (click)="addCountry()">add</button>
+
+
+
+
+
+
+
+
+	<div class="form-group">
+        <div class="input-group">
+
+            <select id="countries" class="form-control" [(ngModel)]="country" list="countries">
+                <option *ngFor="let c of countries" [value]="c.country" >{{c.country}}</option>
+              </select>
+            
+
+            <div class="input-group-prepend">
+
+                <span class="input-group-text" (click)="addCountry()"> <i class="fa fa-plus"></i> </span>
+
+                <div class="btn-group dropleft">
+                    <button type="button" class="btn btn-danger rounded-0" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                    <div class="dropdown-menu" >
+                        <div *ngIf="isEmpty">
+                            qsdqsdqs
+                        </div>
+                        <div *ngFor="let c of Selectedcountries" class="dropdown-item">
+                            <div class="d-inline"> {{ c }}</div>
+                            <button
+                                (click)="removeCountry(c)" class="btn btn-default d-inline"><i class="fas fa-trash-alt"></i>
+                            </button> 
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="alert alert-warning" *ngIf="isAdded">Deja creer</div>
+
+
+
 <div class="row">
     <div class="col-lg-6 col-sm-12 col-md-6" *ngIf="cases.length">
         <canvas baseChart [chartType]="'line'" [datasets]="cases" [labels]="chartLabels" [options]="casesOptions"
@@ -11,8 +69,4 @@
          [legend]="true" id="deathsChart">
         </canvas>
     </div>
-
-    <li *ngFor="let country of countries" (click)="deleteCountry()">
-            {{ country }}
-    </li>
 </div>
