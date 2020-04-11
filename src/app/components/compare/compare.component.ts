@@ -29,7 +29,7 @@ export class CompareComponent implements OnInit {
       fontColor: '#856c8b'
     },
     onClick : function(mouseEvent,chart){
-        console.log(chart.label);
+        console.log(chart);
     },
   };
 
