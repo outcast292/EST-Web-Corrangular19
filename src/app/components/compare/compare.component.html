@@ -22,7 +22,7 @@
 <div class="row">
 
     <div class="col-lg-3 text-right" *ngIf="!isEmpty">Vous avez selectionnez : </div>
-    <span (click)="removeCountry(c)" class="badge badge-pill badge-dark col-lg-1" *ngFor="let c of Selectedcountries" style="margin-left: 5px; margin-top:3px;"> {{ c }} x</span>
+    <span (click)="removeCountry(c)" class="badge badge-pill badge-dark col-lg-1" *ngFor="let c of Selectedcountries" style="margin-left: 5px; margin-top:3px;background-color: {{c.color}};"> {{ c.country }} x</span>
 </div>
 
 
