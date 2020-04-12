@@ -1,6 +1,6 @@
 <div class="form-group">
     <div class="input-group">
-        <select id="countries" class="form-control" [(ngModel)]="country" list="countries">
+        <select id="countries" class="form-control" [(ngModel)]="country" list="countries" value="sqd">
             <option *ngFor="let c of countries" [value]="c.country">{{c.country}}</option>
         </select>
 
@@ -21,20 +21,31 @@
 
 <div class="row">
 
-    <div class="col-lg-3 text-right" *ngIf="!isEmpty">Vous avez selectionnez : </div>
+    <div class="col-lg-3 col-sm-12 col-md-3 text-right text-small" *ngIf="!isEmpty" >Vous avez selectionnez : </div>
     <span (click)="removeCountry(c)" class="badge badge-pill badge-dark col-lg-1" *ngFor="let c of Selectedcountries" style="margin-left: 5px; margin-top:3px;background-color: {{c.color}};"> {{ c.country }} x</span>
+    
 </div>
 
 
-<div class="row" style="margin-top: 30px;">
-    <div class="col-lg-6 col-sm-12 col-md-6" *ngIf="cases.length">
+
+<div class="row" style="margin-top: 30px;" >
+    <div class="col-lg-6 col-sm-12 col-md-6" *ngIf="cases.length && Selectedcountries.length >= 2" >
         <canvas baseChart [chartType]="'line'" [datasets]="cases" [labels]="chartLabels" [options]="casesOptions"
             id="casesChart">
         </canvas>
     </div>
-    <div class="col-lg-6 col-sm-12 col-md-6" *ngIf="deaths.length">
+    <div class="col-lg-6 col-sm-12 col-md-6" *ngIf="deaths.length && Selectedcountries.length >= 2" >
         <canvas baseChart [chartType]="'line'" [datasets]="deaths" [labels]="chartLabels" [options]="deathsOptions"
             [legend]="true" id="deathsChart">
         </canvas>
     </div>
+
+    <div class="col-lg-12"  *ngIf="Selectedcountries.length == 0 || Selectedcountries.length == 1">
+            <div class="jumbotron jumbotron-fluid bg-white">
+                  <h1 class="display-4 text-center">Comparez deux pays ou plus!</h1>
+                  <p *ngIf="Selectedcountries.length == 0" class="lead text-center">Vous devrai selectionnez aux moins <span class="text-danger">deux</span>  pays</p>
+                  <p *ngIf="Selectedcountries.length == 1" class="lead text-center">Vous devrai selectionnez  <span class="text-danger">un</span> pays de plus
+                </p>
+              </div>
+        </div>
 </div>
