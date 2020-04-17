@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiService {
 
-  url = "https://corona.lmao.ninja/";
+  url = "https://corona.lmao.ninja/v2/";
   historical = "https://corona.lmao.ninja/v2/historical/";
 
   constructor(private http: HttpClient) { }
